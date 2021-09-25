@@ -7,6 +7,7 @@
 //
 
 #include "ui/StartStopButton.h"
+#include "cinder/audio/Voice.h"
 
 using namespace ci;
 using namespace ci::app;
@@ -18,6 +19,10 @@ StartStopButton::StartStopButton() :
 {
     BaseButton::set(1700, 23, 1700 + 174, 23 + 48 );
     mBackground = ci::Color( 22.0/255.0, 146.0/255.0, 84.0/255.0 );
+    
+    mCountdownVoice = audio::Voice::create( audio::load( loadAsset( "sounds/countdown.wav" ) ) );
+    mCountdownVoice->setVolume(1.0f);
+    mCountdownVoice->setPan(1.0f);
 }
 
 void StartStopButton::update()
@@ -43,6 +48,7 @@ void StartStopButton::onClick()
 {
     if( StateManager::instance().getCurrentRaceState() == RACE_STATE::RACE_STOPPED ||
        StateManager::instance().getCurrentRaceState() == RACE_STATE::RACE_COMPLETE ){
+        mCountdownVoice->start();
         signalStartRace.emit();
     }else{
         signalStopRace.emit();

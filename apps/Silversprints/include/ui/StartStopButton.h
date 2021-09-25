@@ -13,6 +13,7 @@
 
 #include "data/StateManager.h"
 #include "BaseButton.h"
+#include "cinder/audio/Voice.h"
 
 namespace gfx {
 
@@ -29,7 +30,8 @@ class StartStopButton : public BaseButton {
     ci::signals::Signal<void(void)>	signalStartRace, signalStopRace;
     
   protected:
-    ci::Color       mBackground;
+    ci::Color           mBackground;
+    ci::audio::VoiceRef mCountdownVoice;
 };
 
 }

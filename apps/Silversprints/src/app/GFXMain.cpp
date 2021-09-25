@@ -76,6 +76,11 @@ void GFXMain::setup(){
         mSerialReader->selectSerialDevice(portName);
         mSerialReader->getVersion();
     });
+
+    // SOUND --------------------------------------------------------------
+    mFinishVoice = audio::Voice::create( audio::load( loadAsset( "sounds/finish.mp3" ) ) );
+    mFinishVoice->setVolume(1.0f);
+    mFinishVoice->setPan(1.0f);
     
     mSerialReader->setup();
 }
@@ -89,6 +94,8 @@ void GFXMain::onRaceFinished() {
     console() << "GFXMAIN :: RACE FINSIHED" << endl;
     mSerialReader->stopRace();
     StateManager::instance().changeRaceState( RACE_STATE::RACE_COMPLETE );
+    
+    mFinishVoice->start();
     
     // Log the race
     if(Model::instance().getRaceLogging()){

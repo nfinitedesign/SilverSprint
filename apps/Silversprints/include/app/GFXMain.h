@@ -10,6 +10,7 @@
 
 #include "cinder/app/App.h"
 #include "cinder/app/KeyEvent.h"
+#include "cinder/audio/Voice.h"
 
 #include "data/Model.h"
 #include "data/SerialReader.h"
@@ -50,6 +51,7 @@ namespace gfx{
         SettingsViewRef     mSettingsView;
         
         SerialReaderRef     mSerialReader;
+        ci::audio::VoiceRef mFinishVoice;
         
         void onKeyDown( ci::app::KeyEvent event );
     };

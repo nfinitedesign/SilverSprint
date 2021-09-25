@@ -37,12 +37,8 @@ Model::Model(){
     for( int i=0; i<4; i++){
         playerData.push_back( new PlayerData() );
         playerData.back()->playerColor = playerColors[i];
+        playerData.back()->player_name = "Unknown";
     }
-    
-    playerData[0]->player_name = "Rider 1";
-    playerData[1]->player_name = "Rider 2";
-    playerData[2]->player_name = "Rider 3";
-    playerData[3]->player_name = "Rider 4";
 }
 
 Model::~Model(){
