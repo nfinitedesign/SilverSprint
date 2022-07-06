@@ -1,0 +1,300 @@
+
+<!doctype html>  
+<html lang="en">
+<head>
+	<title>FKK Goldsprints!</title>
+<style>
+	body {
+		background-color: black;
+		color: white;
+		font-size: 105%;
+ 		font-family: Arial;
+	}
+	.res_div_open {
+		position: absolute;
+		top: 50px;
+		left: 20px;
+	}
+	.res_div_wtnb {
+		position: absolute;
+		top: 50px;
+		left: 300px;
+	}
+	.res_div_inner {
+		position: relative;
+		top: 16px;
+		left: 0px;
+		width: 250px;
+		height: 650px;
+		margin: 0px;
+		padding: 0px;
+		overflow: hidden;
+	}
+	.res_table {
+		border: none;
+		border-collapse: collapse;
+		background-color: black;
+		color: black;
+		position: absolute;
+		left: 0;
+		top: 60px;
+		width: 250px;
+	}
+	.res_table_scroll {
+		border: none;
+		border-collapse: collapse;
+		background-color: black;
+		color: black;
+		position: absolute;
+		left: 0;
+		top: 0px;
+		width: 250px;
+	}
+	th {
+		color: white;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	tr {
+		border-bottom: 4px solid black;
+	}
+	td {
+		height: 26px;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	.table_name {
+		width: 150px;
+		text-align: left;
+	}
+	.table_time {
+		width: 100px;
+		text-align: right;
+	}
+	.red {
+		background-color: tomato;
+	}
+	.green {
+		background-color: yellowgreen;
+	}
+	.white {
+		background-color: white;
+	}
+	.finals_div {
+		position: absolute;
+		top: 50px;
+		left: 600px;
+	}
+	.logo {
+		position: absolute;
+		top: 320px;
+		left: 560px;
+		width: 250px;
+		height: 250px;
+	}
+</style>
+<script language="javascript">
+ScrollRate = 50;
+
+window.onload = function() {
+	scrollDiv_init();
+};
+
+function scrollDiv_init() {
+	ids = ['res_div_open', 'res_div_wtnb']
+	DivElmnt_o = document.getElementById('res_div_open');
+	DivElmnt_o.onmouseover = pauseDiv_o;
+	DivElmnt_o.onmouseout = resumeDiv_o;
+	ReachedMaxScroll_o = false;
+	DivElmnt_o.scrollTop = 0;
+	PreviousScrollTop_o  = 0;
+	ScrollInterval_o = setInterval('scrollDiv_o()', ScrollRate);
+
+	DivElmnt_w = document.getElementById('res_div_wtnb');
+	DivElmnt_w.onmouseover = pauseDiv_w;
+	DivElmnt_w.onmouseout = resumeDiv_w;
+	ReachedMaxScroll_w = false;
+	DivElmnt_w.scrollTop = 0;
+	PreviousScrollTop_w  = 0;
+	ScrollInterval_w = setInterval('scrollDiv_w()', ScrollRate);
+}
+
+function scrollDiv_o() {
+	if (!ReachedMaxScroll_o) {
+		DivElmnt_o.scrollTop = PreviousScrollTop_o;
+		PreviousScrollTop_o++;
+		ReachedMaxScroll_o = DivElmnt_o.scrollTop >= (DivElmnt_o.scrollHeight - DivElmnt_o.offsetHeight);
+	}
+	else {
+		ReachedMaxScroll_o = (DivElmnt_o.scrollTop == 0)?false:true;
+		DivElmnt_o.scrollTop = PreviousScrollTop_o;
+		PreviousScrollTop_o--;
+
+	}
+}
+function scrollDiv_w() {
+	if (!ReachedMaxScroll_w) {
+		DivElmnt_w.scrollTop = PreviousScrollTop_w;
+		PreviousScrollTop_w++;
+		ReachedMaxScroll_w = DivElmnt_w.scrollTop >= (DivElmnt_w.scrollHeight - DivElmnt_w.offsetHeight);
+	}
+	else {
+		ReachedMaxScroll_w = (DivElmnt_w.scrollTop == 0)?false:true;
+		DivElmnt_w.scrollTop = PreviousScrollTop_w;
+		PreviousScrollTop_w--;
+
+	}
+}
+
+function pauseDiv_o() {
+  	clearInterval(ScrollInterval_o);
+}
+function pauseDiv_w() {
+  	clearInterval(ScrollInterval_w);
+}
+
+function resumeDiv_o() {
+	PreviousScrollTop_o = DivElmnt_o.scrollTop;
+	ScrollInterval_o = setInterval('scrollDiv_o()', ScrollRate);
+}
+function resumeDiv_w() {
+	PreviousScrollTop_w = DivElmnt_w.scrollTop;
+	ScrollInterval_w = setInterval('scrollDiv_w()', ScrollRate);
+}
+</script>
+</head>
+<body>
+	<h1>FKK Kurierwochenende Goldsprints!</h1>
+	<div class="res_div_open">
+		<h2>Category: Open</h2>
+		<table class="res_table">
+			<tbody>
+				<tr><th class="table_name">Name</th><th class="table_time">Time</th></tr>
+			</tbody>
+		</table>
+		<div id="res_div_open" class="res_div_inner">
+			<table class="res_table_scroll">
+				<tbody>
+					<tr class=red><td class="table_name">r</td><td class="table_time">1.00s</td></tr>
+<tr class=green><td class="table_name">g</td><td class="table_time">2.00s</td></tr>
+<tr class=red><td class="table_name">r</td><td class="table_time">3.00s</td></tr>
+<tr class=red><td class="table_name">r</td><td class="table_time">5.00s</td></tr>
+<tr class=green><td class="table_name">g</td><td class="table_time">6.00s</td></tr>
+<tr class=red><td class="table_name">r</td><td class="table_time">7.00s</td></tr>
+<tr class=green><td class="table_name">g</td><td class="table_time">8.00s</td></tr>
+<tr class=red><td class="table_name">r</td><td class="table_time">9.00s</td></tr>
+<tr class=white><td class="table_name">g</td><td class="table_time">10.00s</td></tr>
+<tr class=white><td class="table_name">r</td><td class="table_time">11.00s</td></tr>
+<tr class=white><td class="table_name">g</td><td class="table_time">12.00s</td></tr>
+<tr class=white><td class="table_name">r</td><td class="table_time">13.00s</td></tr>
+<tr class=white><td class="table_name">g</td><td class="table_time">14.00s</td></tr>
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<div class="res_div_wtnb">
+		<h2>Category: WTNB</h2>
+		<table class="res_table">
+			<tbody>
+				<tr><th class="table_name">Name</th><th class="table_time">Time</th></tr>
+			</tbody>
+		</table>
+		<div id="res_div_wtnb" class="res_div_inner">
+			<table class="res_table_scroll">
+				<tbody>
+					<tr class=green><td class="table_name">g</td><td class="table_time">4.00s</td></tr>
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="finals_div">
+		<h2 style="position: absolute; left: 0px; top: 0px; width: 250px">Quarterfinals: Open</h2>
+		<table class="finals_table res_table" style="left: 0px; top: 60px;">
+			<tbody>
+				<tr><th class="table_name">Name</th><th class="table_time">Time</th></tr>
+				<tr class="white"><td class="table_name">r</td><td class="table_time"></td></tr>
+				<tr class="white"><td class="table_name">g</td><td class="table_time"></td></tr>
+			</tbody>
+		</table>
+		<table class="finals_table res_table" style="left: 0px; top: 160px;">
+			<tbody>
+				<tr class="white"><td class="table_name">r</td><td class="table_time"></td></tr>
+				<tr class="white"><td class="table_name">r</td><td class="table_time"></td></tr>
+			</tbody>
+		</table>
+		<table class="finals_table res_table" style="left: 0px; top: 240px;">
+			<tbody>
+				<tr class="white"><td class="table_name">g</td><td class="table_time"></td></tr>
+				<tr class="white"><td class="table_name">g</td><td class="table_time"></td></tr>
+			</tbody>
+		</table>
+		<table class="finals_table res_table" style="left: 0px; top: 320px;">
+			<tbody>
+				<tr class="white"><td class="table_name">r</td><td class="table_time"></td></tr>
+				<tr class="white"><td class="table_name">r</td><td class="table_time"></td></tr>
+			</tbody>
+		</table>
+
+
+		<h2 style="position: absolute; left: 280px; top: 0px; width: 250px">Semifinals: Open</h2>
+		</table>
+				<table class="finals_table res_table" style="left: 280px; top: 100px;">
+			<tbody>
+				<tr><th class="table_name">Name</th><th class="table_time">Time</th></tr>
+				<tr class="white"><td class="table_name"></td><td class="table_time"></td></tr>
+				<tr class="white"><td class="table_name"></td><td class="table_time"></td></tr>
+			</tbody>
+		</table>
+		<table class="finals_table res_table" style="left: 280px; top: 255px;">
+			<tbody>
+				<tr><th class="table_name">Name</th><th class="table_time">Time</th></tr>
+				<tr class="white"><td class="table_name"></td><td class="table_time"></td></tr>
+				<tr class="white"><td class="table_name"></td><td class="table_time"></td></tr>
+			</tbody>
+		</table>
+
+
+		<h2 style="position: absolute; left: 560px; top: 0px; width: 250px;">Final: Open</h2>
+		<table class="finals_table res_table" style="left: 560px; top: 175px;">
+			<tbody>
+				<tr><th class="table_name">Name</th><th class="table_time">Time</th></tr>
+				<tr class="white"><td class="table_name"></td><td class="table_time"></td></tr>
+				<tr class="white"><td class="table_name"></td><td class="table_time"></td></tr>
+			</tbody>
+		</table>
+
+
+		<h2 style="position: absolute; left: 0px; top: 390px; width: 250px">Semifinals: WTNB</h2>
+		<table class="finals_table res_table" style="left: 0px; top: 450px;">
+			<tbody>
+				<tr><th class="table_name">Name</th><th class="table_time">Time</th></tr>
+				<tr class="white"><td class="table_name"></td><td class="table_time"></td></tr>
+				<tr class="white"><td class="table_name"></td><td class="table_time"></td></tr>
+			</tbody>
+		</table>
+		<table class="finals_table res_table" style="left: 0px; top: 605px;">
+			<tbody>
+				<tr><th class="table_name">Name</th><th class="table_time">Time</th></tr>
+				<tr class="white"><td class="table_name">g</td><td class="table_time"></td></tr>
+				<tr class="white"><td class="table_name"></td><td class="table_time"></td></tr>
+			</tbody>
+		</table>
+
+
+		<h2 style="position: absolute; left: 280px; top: 390px; width: 250px;">Final: WTNB</h2>
+		<table class="{finals_table res_table" style="left: 280px; top: 525px;">
+			<tbody>
+				<tr><th class="table_name">Name</th><th class="table_time">Time</th></tr>
+				<tr class="white"><td class="table_name"></td><td class="table_time"></td></tr>
+				<tr class="white"><td class="table_name"></td><td class="table_time"></td></tr>
+			</tbody>
+		</table>
+
+
+		<img src="logo.jpeg" alt="FKK" class="logo">
+	</div>
+</body>
+</html>
